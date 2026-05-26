@@ -1,25 +1,23 @@
-# Python Excel Cleaner
+# python-excel-cleaner
 
-A professional utility designed to automate the cleaning of messy sales datasets. This project transforms inconsistent raw data into an analysis-ready format using Python and pandas.
+A Python script to automate the cleaning of raw sales datasets. 
 
-## Project Context & Motivation
-This tool was developed to solve common data quality issues in sales reporting, such as inconsistent date formats, currency symbols in numeric fields, and duplicate records. By automating the cleaning pipeline, I reduced the time required to prepare monthly financial reports by approximately 80%.
+This project takes messy Excel files and standardizes them for analysis. I wrote this because manually cleaning repetitive data errors—like inconsistent date formats or dirty currency strings—is inefficient and prone to human error. 
 
-## Key Features
-* **Data Integrity:** Automatically removes duplicate records and clears empty rows.
-* **Normalization:** Standardizes column names to `snake_case` to simplify database integration.
-* **Data Cleansing:** Converts mixed formats into clean, machine-readable types (Dates & Currency).
-* **Robustness:** Implements defensive programming techniques to handle missing values and inconsistent formatting without breaking the workflow.
+## How it works
+The script processes raw Excel data through the following steps:
+1. **Clean headers:** Trims whitespace, converts to lowercase, and replaces spaces with underscores.
+2. **Duplicate/Blank removal:** Drops redundant rows and entries without critical information.
+3. **Data formatting:** - Converts dates to datetime objects.
+   - Strips currency symbols and converts strings to numeric types.
+   - Cleans text formatting (strips whitespace and standardizes casing).
+4. **Validation:** Saves the final clean dataset to a new Excel file.
 
+## Requirements
+- Python 3.x
+- pandas
+- openpyxl
 
-
-## Challenges Faced
-Initially, the currency column contained mixed formatting (some with symbols like '$', others without). I solved this by using Regex to strip non-numeric characters while preserving decimal points, which proved significantly more reliable than simple string replacement methods.
-
-## Getting Started
-
-### Prerequisites
-Ensure you have Python installed, then install the required dependencies:
-
+Install dependencies:
 ```bash
 pip install -r requirements.txt
